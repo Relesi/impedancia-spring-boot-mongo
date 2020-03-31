@@ -1,10 +1,16 @@
 package com.relesi.impedanciamongo.domain;
 
-import java.io.Serializable;
-import java.util.Objects;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.io.Serializable;
+
+@Document(collection="user")
 public class User implements Serializable {
 
+    private static final long serialVersionUID = 1L;
+
+    @Id
     private String id;
     private String name;
     private String email;
@@ -42,6 +48,15 @@ public class User implements Serializable {
     public void setEmail(String email) {
         this.email = email;
     }
+
+    @Override
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + ((id == null) ? 0 : id.hashCode());
+        return result;
+    }
+
 
     @Override
     public boolean equals(Object obj) {
