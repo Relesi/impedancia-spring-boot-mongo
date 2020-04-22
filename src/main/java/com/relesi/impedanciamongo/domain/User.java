@@ -18,6 +18,8 @@ public class User implements Serializable {
     private String id;
     private String name;
     private String email;
+    private int idade;
+    private int sexo;
 
     @DBRef(lazy = true)
     private List<Post> posts = new ArrayList<>();
@@ -89,6 +91,10 @@ public class User implements Serializable {
             return false;
         return true;
     }
+
+
+
+
 }
 
 
